@@ -21,11 +21,14 @@ export class AppComponent implements OnInit, OnDestroy {
   date: Date = moment().toDate();
   isLoading: boolean = false;
 
-  constructor(private readonly ratesService: RatesService) {}
+  constructor(private readonly ratesService: RatesService) {
+    this.rate = null;
+  }
 
   ngOnInit() {
+    this.rate = null;
     this.dateSubject
-      .pipe(debounceTime(this.debounceTimeMs), distinctUntilChanged())
+      .pipe(debounceTime(this.debounceTimeMs))
       .subscribe((date) => {
         this.changeDate(date);
       });

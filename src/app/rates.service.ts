@@ -13,7 +13,7 @@ export class RatesService {
       this.getRandomNumber(3500, 4750)
     );
 
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= 365; i++) {
       this.rates.set(
         moment().add(i, 'day').toDate().toDateString(),
         this.getRandomNumber(3500, 4750)
@@ -31,7 +31,7 @@ export class RatesService {
       date: date,
       rate: value,
     };
-    return of(returnValue).pipe(delay(1000));
+    return of(returnValue).pipe(delay(750));
   }
 
   private getRandomNumber(min: number, max: number): number {

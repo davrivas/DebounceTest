@@ -5,10 +5,9 @@
   <button (click)="prev()">Prev</button>
   <button (click)="next()">Next</button>
 
-  <div *ngIf="isLoading">Loading...</div>
-
-  <div *ngIf="!isLoading && rate">
-    <p><strong>Date:</strong> {{ rate.date | date }}</p>
-    <p><strong>Rate:</strong> {{ rate.rate | currency }}</p>
-  </div>
+  <p><strong>Date:</strong> {{ date | date }}</p>
+  <p *ngIf="isLoading">Loading...</p>
+  <p *ngIf="!isLoading && rate">
+    <strong>Rate:</strong> {{ rate.rate | currency }}
+  </p>
 </div>
